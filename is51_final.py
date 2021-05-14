@@ -21,3 +21,27 @@ if it is above the average:
 
 percent above average = above average + number of values
 """
+
+def main():
+    calculate_percent_above_average(grades())
+
+def grades():
+    infile = open('Final.txt', 'r')
+    lines = infile.readlines()
+    grades = [int(i) for i in lines]
+    return grades
+
+def calculate_percent_above_average(grades):
+    sum = 0
+    for i in grades:
+        average = sum / len(grades)
+
+    num_above_average = 0
+    for i in grades:
+        if i > average:
+            num_above_average = num_above_average + 1
+
+    percent_above = round((num_above_average / average) * 100, 2)
+    print("{percent_above}% of values that are higher than average")
+
+main()
